@@ -17,30 +17,33 @@ namespace Swin_Adventure // Note: actual namespace depends on the project name.
 
             // Introduction message
             Console.WriteLine("\n" + thePlayer.FullDescription);
-            Console.WriteLine(String.Format("Current Location: {0}\n\t{1}", thePlayer.Location.ShortDescription, thePlayer.Location.FullDescription));
+            Console.WriteLine(String.Format("\nCurrent Location: {0}\n\t{1}", thePlayer.Location.ShortDescription, thePlayer.Location.FullDescription));
+            Console.WriteLine("\nEnter 'exit' to quit your adventure.");
+
+            // Create CommandProcessor
+            CommandProcessor cmdProcessor = new CommandProcessor();
 
             // Keep getting commands from the user
             while (true)
             {
                 Console.Write("{0}>",thePlayer.Name);
-                string[] userInput = Console.ReadLine().Split();
-                
+                string[] userInput = Console.ReadLine().Trim().Split();
+
                 if (userInput.Contains("exit"))
                 {
                     break;
                 }
-
-                Look userLook = new Look();
-                Console.WriteLine(userLook.Execute(thePlayer, userInput));
+                
+                Console.WriteLine(cmdProcessor.Execute(thePlayer, userInput));
             }
         }
 
         private static Player CreatePlayer()
         {
             Console.Write("Enter your name: ");
-            string playerName = Console.ReadLine();
+            string playerName = Console.ReadLine().Trim();
             Console.Write("Enter a description: ");
-            string playerDescription = Console.ReadLine();
+            string playerDescription = Console.ReadLine().Trim();
 
             // Create player
             return new Player(playerName, playerDescription);

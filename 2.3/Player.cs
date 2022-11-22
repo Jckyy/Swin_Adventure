@@ -47,7 +47,7 @@ namespace Swin_Adventure
                     base.Name +
                     ", " +
                     base.FullDescription + 
-                    ".\nYou are carrying:\n" +
+                    ".\n\nYou are carrying:" +
                     this.Inventory.ItemList;
 
                 return playerDescription;

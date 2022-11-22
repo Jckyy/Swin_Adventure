@@ -43,7 +43,7 @@ namespace SwinAdventureTests
         [Test]
         public void TestBagFullDescription()
         {
-            Assert.That(_bag.FullDescription, Is.EqualTo("In the Small Bag you can see:\n\t-Bronze Sword (sword)\n"));
+            Assert.That(_bag.FullDescription, Is.EqualTo("In the Small Bag you can see:\n\t-Bronze Sword (sword)"));
         }
 
         [Test]

@@ -32,7 +32,7 @@ namespace SwinAdventureTests
         [Test]
         public void TestLookAtMe()
         {
-            string expected = "You are Jacky, a fledgling coder.\nYou are carrying:\n";
+            string expected = "You are Jacky, a fledgling coder.\n\nYou are carrying:";
             string actual = _look.Execute(_player, new string[] { "look", "at", "inventory" });
 
             Assert.That(actual, Is.EqualTo(expected));
@@ -125,7 +125,7 @@ namespace SwinAdventureTests
         {
             //_player.Location = new Location(new string[] { "town" }, "Town", "A random town.");
 
-            string expected = "In the Town, there is:\n\t-Red Potion (potion)\n";
+            string expected = "In the Town, there is:\n\t-Red Potion (potion)";
             string actual = _look.Execute(_player, new string[] { "look", "at", "town" });
             Assert.That(actual, Is.EqualTo(expected));
         }

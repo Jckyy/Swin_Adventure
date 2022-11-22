@@ -54,7 +54,7 @@ namespace SwinAdventureTests
         public void TestItemList()
         {
             _inventory.Put(_item2);
-            Assert.That(_inventory.ItemList, Is.EqualTo("\t-Bronze Sword (sword)\n\t-Water (water)\n"));
+            Assert.That(_inventory.ItemList, Is.EqualTo("\n\t-Bronze Sword (sword)\n\t-Water (water)"));
         }
     }
 }

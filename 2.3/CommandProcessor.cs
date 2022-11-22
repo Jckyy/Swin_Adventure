@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Common;
 using System.Linq;
+using System.Net.NetworkInformation;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -9,25 +12,47 @@ namespace Swin_Adventure
     public class CommandProcessor
     {
         private List<Command> _commands = new List<Command>();
-        private Command _cmd;
-                
-        public CommandProcessor(string[] userInput)
+
+        public CommandProcessor()
         {
-            //_text = userInput;
+            _commands.Add(new Look());
+            _commands.Add(new Move());
         }
 
-        public string NewCommand(string[] text)
+        public string Execute(Player p, string[] text)
         {
-            if (text == null)
+            // Check every command that is available in _commands list
+            foreach (Command cmd in _commands)
             {
-                return "Invalid command. Type 'help' to see the available commands.";
+                if (cmd.AreYou(text[0].ToLower()))
+                {
+                    return cmd.Execute(p, text);
+                }
             }
 
+            // Scuffed help command.
+            if (text[0].ToLower() == "help")
+            {
+                return Help;
+            }
 
-
-            return null;
+            return "Invalid command. Enter 'help' to see the list of available commands.";
         }
 
+        private string Help
+        {
+            get
+            {
+                string helpString = "The list of the available commands:\n\t-help\n";
 
+                foreach (Command cmd in _commands)
+                {
+                    helpString += String.Format("\t-{0}\n", cmd.FirstID);
+                }
+
+                return helpString;
+
+            }
+        }
     }
 }

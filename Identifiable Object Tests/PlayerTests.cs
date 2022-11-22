@@ -54,11 +54,10 @@ namespace SwinAdventureTests
         [Test]
         public void TestPlayerFullDescription()
         {
-            Assert.That(_player.FullDescription, Is.EqualTo("You are Jacky, a fledgling coder.\n" +
+            Assert.That(_player.FullDescription, Is.EqualTo("You are Jacky, a fledgling coder.\n\n" +
                 "You are carrying:" +
                 "\n\t-Bronze Sword (sword)" +
-                "\n\t-Water (water)" +
-                "\n"));
+                "\n\t-Water (water)"));
         }
     }
 }

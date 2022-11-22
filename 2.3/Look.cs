@@ -9,14 +9,10 @@ namespace Swin_Adventure
     public class Look : Command
     {
         public Look() : base(new string[] { "look" })
-        {
-
-        }
-
+        { }
 
         public override string Execute(Player p, string[] text)
         {
-
             // Remember to use & since | will alawys make it run
             // Putting this check at the start will also disallow a null (string[] {})
             if (text.Length != 1 & text.Length != 3 & text.Length != 5)
@@ -28,7 +24,6 @@ namespace Swin_Adventure
             {
                 return "Error in look input.";
             }
-
 
             if (text.Length == 3)
             { 
@@ -72,7 +67,7 @@ namespace Swin_Adventure
                         }
                         
                         // Else return item list of the player's location.
-                        return String.Format("In the {0}, there is:\n{1}", p.Location.Name, p.Location.Inventory.ItemList);
+                        return String.Format("In the {0}, there is:{1}", p.Location.Name, p.Location.Inventory.ItemList);
                     }
 
                 // "Look at item in container"

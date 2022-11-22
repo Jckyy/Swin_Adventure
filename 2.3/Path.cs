@@ -13,11 +13,6 @@ namespace Swin_Adventure
         private bool _isBlocked;
         private string _sourceDirection;
 
-        // This object needs to be able to move the player's location to a new location
-        // Needs to be identifiable
-            // Identifiers indicate the direction. 
-            // Used to locate the path from the location
-
         public Path(string[] ids, Location destination) : base(ids, ids[0], String.Format("Take the {0} path to move to {1}.", ids[0], destination.Name))
         {
             _isBlocked = false;

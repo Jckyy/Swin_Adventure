@@ -11,9 +11,7 @@ namespace Swin_Adventure
     {
         // Identified by the words, "move", "go", "head", "leave"                
         public Move() : base(new string[] { "move", "go", "head", "leave" })
-        {
-
-        }
+        { }
 
         public override string Execute(Player p, string[] text)
         {
@@ -45,7 +43,6 @@ namespace Swin_Adventure
             }
 
             // 1. Find path that matches the ID
-            //Path _path = this.GetPath(p, id);
             Path _path = p.Locate(id) as Path;
 
             if (_path == null)
@@ -55,35 +52,5 @@ namespace Swin_Adventure
 
             return _path.Move(p, id);
         }   
-        
-        // Returns a Path Object for the Move Command to use.
-        //private Path GetPath(Player p, string id)
-        //{
-        //    foreach (Path path in p.Location.Paths)
-        //    {
-        //        // AreYou path or path's destination
-        //        if (path.AreYou(id) | path.Destination.AreYou(id))
-        //        {
-        //            return path;
-        //        }
-        //    }
-        //    // Second loop because I want to lower the priority of travelling back
-        //    // to the source. If there are multiple paths I want to check those first
-        //    //
-        //    // 2 statements below are for moving back to original location
-        //    foreach (Path path in p.Location.Paths)
-        //    {
-        //        if (path.Source == null)
-        //        {
-        //            break;
-        //        }
-        //        // AreYou source location or opposite direction of AreYou(id)
-        //        else if (path.SourceDirection == id | path.Source.AreYou(id))
-        //        {
-        //            return path;
-        //        }
-        //    }
-        //    return null;
-        //}
     }
 }

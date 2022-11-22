@@ -26,7 +26,7 @@ namespace Swin_Adventure
         {
             get
             {
-                string full_description = "In the " + Name + " you can see:\n";
+                string full_description = "In the " + Name + " you can see:";
 
                 full_description += _inventory.ItemList;
 
